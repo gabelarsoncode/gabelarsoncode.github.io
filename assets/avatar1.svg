@@ -1,0 +1,5 @@
+<svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="60" cy="40" r="30" fill="#b2d8d8"/>
+  <ellipse cx="60" cy="90" rx="35" ry="20" fill="#e0f7fa"/>
+  <text x="60" y="115" font-size="14" text-anchor="middle" fill="#4a6c6f">Avatar</text>
+</svg>
