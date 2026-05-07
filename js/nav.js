@@ -1,26 +1,52 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const navLinks = document.querySelectorAll('nav a');
-  const sections = document.querySelectorAll('main section');
+  const nav = document.getElementById('site-nav');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelectorAll('#site-nav a');
 
-  function showSection(id) {
-    sections.forEach(section => {
-      if (section.id === id) {
-        section.style.display = 'block';
-      } else {
-        section.style.display = 'none';
-      }
+  const mqMobile = window.matchMedia('(max-width: 768px)');
+
+  function isMobileNav() {
+    return mqMobile.matches;
+  }
+
+  function setMenuOpen(open) {
+    if (!navToggle || !nav) return;
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    nav.classList.toggle('is-open', open);
+    document.documentElement.classList.toggle('nav-menu-open', open);
+    document.body.classList.toggle('nav-menu-open', open);
+  }
+
+  function closeMobileMenu() {
+    setMenuOpen(false);
+  }
+
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', function () {
+      const next = navToggle.getAttribute('aria-expanded') !== 'true';
+      setMenuOpen(next);
     });
   }
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = this.getAttribute('href').replace('#', '');
-      showSection(target);
-      window.scrollTo(0, 0);
-    });
+  mqMobile.addEventListener('change', function () {
+    if (!isMobileNav()) {
+      closeMobileMenu();
+    }
   });
 
-  // Show home by default
-  showSection('home');
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav && nav.classList.contains('is-open')) {
+      closeMobileMenu();
+      if (navToggle) navToggle.focus();
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      if (isMobileNav()) {
+        closeMobileMenu();
+      }
+    });
+  });
 });

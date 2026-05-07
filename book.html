@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Northwest Tranquil Minds PLLC</title>
+	<title>Book an Appointment — Northwest Tranquil Minds PLLC</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -20,24 +20,34 @@
 		</button>
 		<nav id="site-nav" class="site-nav" aria-label="Main">
 			<ul>
-				<li><a href="index.html" aria-current="page">Home</a></li>
+				<li><a href="index.html">Home</a></li>
 				<li><a href="about.html">About</a></li>
 				<li><a href="services.html">Services</a></li>
-				<li><a href="book.html" class="nav-link--cta">Book an Appointment</a></li>
+				<li><a href="book.html" class="nav-link--cta" aria-current="page">Book an Appointment</a></li>
 			</ul>
 		</nav>
 	</header>
 
 	<main>
-		<section class="hero">
-			<div class="hero-inner">
-				<p class="hero-eyebrow">Pacific Northwest · Therapy &amp; counseling</p>
-				<h1>Welcome to Northwest Tranquil Minds</h1>
-				<p class="hero-lede">Compassionate mental health care with space to breathe, reflect, and move forward—at your pace.</p>
-				<div class="hero-actions">
-					<a href="book.html" class="btn btn-primary">Book a session</a>
-					<a href="about.html" class="btn btn-ghost">Meet our team</a>
-				</div>
+		<section class="book">
+			<header class="section-head section-head--narrow">
+				<p class="section-eyebrow">Next step</p>
+				<h2>Book an Appointment</h2>
+			</header>
+			<div class="booking-shell">
+			<form class="booking-form">
+				<label for="first">First Name</label>
+				<input type="text" id="first" name="first" required>
+				<label for="last">Last Name</label>
+				<input type="text" id="last" name="last" required>
+				<label for="phone">Phone</label>
+				<input type="tel" id="phone" name="phone" required>
+				<label for="email">Email</label>
+				<input type="email" id="email" name="email" required>
+				<label for="reason">Reason for Visit</label>
+				<textarea id="reason" name="reason" rows="3" required></textarea>
+				<button type="submit">Submit request</button>
+			</form>
 			</div>
 		</section>
 	</main>
