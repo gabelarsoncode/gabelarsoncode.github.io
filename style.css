@@ -356,7 +356,71 @@ main {
   color: var(--color-text);
 }
 
-.therapist p {
+.therapist-bio {
+  margin-top: 1.25rem;
+  text-align: left;
+}
+
+.therapist-bio p {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.therapist-bio-more {
+  margin-top: 0.85rem;
+}
+
+.therapist-bio-toggle {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s;
+}
+
+.therapist-bio-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.therapist-bio-toggle:hover {
+  color: var(--color-accent-hover);
+}
+
+.therapist-bio-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.therapist-bio-toggle-less {
+  display: none;
+}
+
+.therapist-bio-more[open] .therapist-bio-toggle-more {
+  display: none;
+}
+
+.therapist-bio-more[open] .therapist-bio-toggle-less {
+  display: inline;
+}
+
+.therapist-bio-more-content {
+  margin-top: 0.85rem;
+}
+
+.therapist-bio-more-content p + p,
+.therapist-bio p + .therapist-bio-more-content p {
+  margin-top: 0.85rem;
+}
+
+.therapist-bio-more-content p {
   margin: 0;
   font-size: 0.98rem;
   color: var(--color-text-muted);
@@ -364,13 +428,23 @@ main {
 }
 
 .avatar {
-  width: 88px;
-  height: 88px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   margin: 0 auto 1.25rem;
+  object-fit: cover;
+  object-position: center center;
   background: linear-gradient(145deg, #e0f2f1, #f1f5f9);
   border: 3px solid rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.avatar--tina {
+  object-position: center 22%;
+}
+
+.avatar--amanda {
+  object-position: center 20%;
 }
 
 /* Services */
@@ -776,11 +850,6 @@ footer p {
   }
 }
 
-@media (max-width: 700px) {
-  .therapists {
-    grid-template-columns: 1fr;
-  }
-}
 
 @media (min-width: 769px) {
   .site-nav {
