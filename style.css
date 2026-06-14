@@ -671,6 +671,24 @@ footer p {
   margin: 0;
 }
 
+.footer-contact a {
+  color: var(--color-accent);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-contact a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+.footer-contact a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 .footer-social {
   display: flex;
   align-items: center;
